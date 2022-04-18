@@ -1,26 +1,32 @@
 import _ from 'lodash';
-import fileData from './data.js';
+import { resolve, extname } from 'path';
+import { readFileSync } from 'fs';
+import parserFile from './parsers.js';
 
 const genDiff = (filepath1, filepath2) => {
-  const file1 = fileData(filepath1);
-  const file2 = fileData(filepath2);
-  const keys = Object.keys({ ...file1, ...file2 }).sort();
+  const ext1 = extname(filepath1);
+  const ext2 = extname(filepath2);
+  const readFile = (filepath) => readFileSync(resolve(filepath), 'utf-8');
+  const fileData1 = parserFile(readFile(filepath1), ext1);
+  const fileData2 = parserFile(readFile(filepath2), ext2);
+  const keys = Object.keys({ ...fileData1, ...fileData2 });
 
-  const getDistinction = keys
+  const result = _.sortBy(keys, (key) => key)
     .map((key) => {
-      if (!_.has(file2, key)) {
-        return `- ${key}: ${file1[key]}`;
+      if (!_.has(fileData2, key)) {
+        return `- ${key}: ${fileData1[key]}`; // deleted
       }
-      if (!_.has(file1, key)) {
-        return `+ ${key}: ${file2[key]}`;
+      if (!_.has(fileData1, key)) {
+        return `+ ${key}: ${fileData2[key]}`; // added
       }
-      if (file1[key] === file2[key]) {
-        return `  ${key}: ${file1[key]}`;
+      if (fileData1[key] === fileData2[key]) {
+        return `  ${key}: ${fileData1[key]}`; // unchanged
       }
-      return `- ${key}: ${file1[key]}\n  + ${key}: ${file2[key]}`;
+      return `- ${key}: ${fileData1[key]}\n  + ${key}: ${fileData2[key]}`; // changed
     })
     .join('\n  ');
-  return `{\n  ${getDistinction}\n}`;
+
+  return `{\n  ${result}\n}`;
 };
 
 export default genDiff;
