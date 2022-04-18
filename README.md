@@ -9,3 +9,5 @@
 <a href="https://codeclimate.com/github/Yakanaro/backend-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1c2e7ca40cbbe3312276/test_coverage" /></a>
 
 [![asciicast](https://asciinema.org/a/488136.svg)](https://asciinema.org/a/488136)
+
+[![asciicast](https://asciinema.org/a/488313.svg)](https://asciinema.org/a/488313)
