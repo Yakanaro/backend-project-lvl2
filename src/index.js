@@ -14,15 +14,15 @@ const genDiff = (filepath1, filepath2) => {
   const result = _.sortBy(keys, (key) => key)
     .map((key) => {
       if (!_.has(fileData2, key)) {
-        return `- ${key}: ${fileData1[key]}`; // deleted
+        return `- ${key}: ${fileData1[key]}`;
       }
       if (!_.has(fileData1, key)) {
-        return `+ ${key}: ${fileData2[key]}`; // added
+        return `+ ${key}: ${fileData2[key]}`;
       }
       if (fileData1[key] === fileData2[key]) {
-        return `  ${key}: ${fileData1[key]}`; // unchanged
+        return `  ${key}: ${fileData1[key]}`;
       }
-      return `- ${key}: ${fileData1[key]}\n  + ${key}: ${fileData2[key]}`; // changed
+      return `- ${key}: ${fileData1[key]}\n  + ${key}: ${fileData2[key]}`;
     })
     .join('\n  ');
 
