@@ -1,18 +1,17 @@
+import { fileURLToPath } from 'url';
+import * as path from 'path';
+import fs from 'fs';
 import genDiff from '../src/index.js';
+import stylish from '../src/formatters/stylish.js';
 
-const filepath1 = './__fixtures__/file1.json';
-const filepath2 = './__fixtures__/file2.json';
-const result = `{
-  - follow: false
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-}`;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// eslint-disable-next-line no-undef
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const getExpectedPath = (filename) => path.join(__dirname, filename);
+const readFile = (filename) => fs.readFileSync(getExpectedPath(filename), 'utf-8');
+
 test('genDiff', () => {
-  // eslint-disable-next-line no-undef
-  expect(genDiff(filepath1, filepath2)).toEqual(result);
+  const tree1 = getFixturePath('file6.json');
+  const tree2 = getFixturePath('file7.json');
+  expect(stylish(genDiff(tree1, tree2))).toStrictEqual(readFile('tree.test.txt'));
 });
