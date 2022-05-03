@@ -8,12 +8,38 @@
 
 <a href="https://codeclimate.com/github/Yakanaro/backend-project-lvl2/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1c2e7ca40cbbe3312276/test_coverage" /></a>
 
-[![asciicast](https://asciinema.org/a/488136.svg)](https://asciinema.org/a/488136)
+# Description
 
-[![asciicast](https://asciinema.org/a/488313.svg)](https://asciinema.org/a/488313)
+gendiff - a program that generates the difference between two files
 
-[![asciicast](https://asciinema.org/a/489686.svg)](https://asciinema.org/a/489686)
+# Описание
 
-[![asciicast](https://asciinema.org/a/491586.svg)](https://asciinema.org/a/491586)
+gendiff - программа которая генерирует разницу между двумя файлами
 
-[![asciicast](https://asciinema.org/a/491588.svg)](https://asciinema.org/a/491588)
+# Setup
+
+- Clone this repository
+- Next, enter the command **`make install`**
+- For help run **`gendiff -h`**
+
+# Установка
+
+-Клонировать данный репозиторий
+-Ввести команду **`make install`**
+-Для справки/помощи использовать **`gendiff -h`**
+
+# Demostration of flat diff
+
+[![asciicast](https://asciinema.org/a/491798.svg)](https://asciinema.org/a/491798) (update);
+
+# Demostration of nested diff
+
+[![asciicast](https://asciinema.org/a/491881.svg)](https://asciinema.org/a/491881) (update yml nested type);
+
+# Demostration of nested diff with plain format
+
+[![asciicast](https://asciinema.org/a/491884.svg)](https://asciinema.org/a/491884) (update json nested plain format )
+
+# Demostration of nested diff with json format
+
+[![asciicast](https://asciinema.org/a/491886.svg)](https://asciinema.org/a/491886) (update json nested json format)
