@@ -7,11 +7,11 @@
 
 # Description
 
-gendiff - a program that generates the difference between two files
+gendiff - a program that generates the difference between two files. (This program is written as part of the second project of the training platform Hexlet)
 
 # Описание
 
-gendiff - программа которая генерирует разницу между двумя файлами
+gendiff - программа которая генерирует разницу между двумя файлами.(Данная программа написана в рамках второго проекта обучающей платформы Hexlet)
 
 # Setup
 
@@ -27,16 +27,16 @@ gendiff - программа которая генерирует разницу 
 
 # Demostration of flat diff
 
-[![asciicast](https://asciinema.org/a/491798.svg)](https://asciinema.org/a/491798);
+[![asciicast](https://asciinema.org/a/491798.svg)](https://asciinema.org/a/491798)
 
 # Demostration of nested diff
 
-[![asciicast](https://asciinema.org/a/491881.svg)](https://asciinema.org/a/491881);
+[![asciicast](https://asciinema.org/a/491881.svg)](https://asciinema.org/a/491881)
 
 # Demostration of nested diff with plain format
 
-[![asciicast](https://asciinema.org/a/491884.svg)](https://asciinema.org/a/491884);
+[![asciicast](https://asciinema.org/a/491884.svg)](https://asciinema.org/a/491884)
 
 # Demostration of nested diff with json format
 
-[![asciicast](https://asciinema.org/a/491886.svg)](https://asciinema.org/a/491886);
+[![asciicast](https://asciinema.org/a/491886.svg)](https://asciinema.org/a/491886)
