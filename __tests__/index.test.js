@@ -36,3 +36,10 @@ test('genDiff yml', () => {
   const tree2 = getFixturePath('file2.yml');
   expect(genDiff(tree1, tree2)).toEqual(result);
 });
+
+test('genDiff yaml', () => {
+  const result = readFile('../__fixtures__/tree.test.txt');
+  const tree1 = getFixturePath('file3.yaml');
+  const tree2 = getFixturePath('file4.yaml');
+  expect(genDiff(tree1, tree2)).toEqual(result);
+});
