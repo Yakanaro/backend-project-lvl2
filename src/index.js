@@ -1,13 +1,21 @@
-import parserFile from './parsers.js';
+import path from 'path';
+import parsers from './parsers.js';
 import getTreeDifference from './getTreeDifference.js';
-import showForm from './formatters/index.js';
+import format from './formatters/index.js';
+import readFile from './readFile.js';
 
-const genDiff = (filepath1, filepath2, format) => {
-  const data1 = parserFile(filepath1);
-  const data2 = parserFile(filepath2);
+const getParsingData = (file) => {
+  const data = readFile(file);
+  const extension = path.extname(file).substring(1);
+  return parsers(data, extension);
+};
+
+const genDiff = (filepath1, filepath2, formatName) => {
+  const data1 = getParsingData(filepath1);
+  const data2 = getParsingData(filepath2);
 
   const diff = getTreeDifference(data1, data2);
-  return showForm(diff, format);
+  return format(diff, formatName);
 };
 
 export default genDiff;

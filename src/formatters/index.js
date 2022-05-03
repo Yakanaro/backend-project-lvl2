@@ -1,8 +1,8 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 
-const showForm = (diff, format = 'stylish') => {
-  switch (format) {
+const format = (diff, formatName = 'stylish') => {
+  switch (formatName) {
     case 'stylish':
       return stylish(diff);
     case 'plain':
@@ -10,7 +10,7 @@ const showForm = (diff, format = 'stylish') => {
     case 'json':
       return JSON.stringify(diff);
     default:
-      throw new Error(`Unknown ${format} format!`);
+      throw new Error(`Unknown ${formatName} format!`);
   }
 };
-export default showForm;
+export default format;
